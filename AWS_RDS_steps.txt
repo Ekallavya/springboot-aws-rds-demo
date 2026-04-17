@@ -1,0 +1,104 @@
+## Create AWS RDS MySQL
+	#Login AWS management Console
+	
+		-> search RDS service ,click on RDS
+		-> redirect to AWS RDS page
+		-> click on Databases
+		-> click on Create database
+		-> choose database creation method :Full Configuration
+			Ex:
+			standard create ,Easy Create
+		-> select Engine options : MySQL
+		-> select appropriate version from drop-down 
+				Ex: MySQL :8.0.17
+		->select appropriate Templates
+		
+		   Ex: Free tier
+		   
+		   other options : Production ,Dev/Test
+		-> specify DB  instance identifier 
+			ex: bookmgmt
+			Note:
+			Type a name for your DB instance. The name must be unique across all DB instances owned by your AWS account in the current AWS Region.
+		-> specify credentials (give input)
+		
+		    username and passward
+			keep it safe ,need to use the same details , application.properties for datasource configuration
+		
+		->navigate to Additional connectivity configuration
+		->  go to pulicly accessble 
+		-> enable yes option
+		
+		-> navigate to Database options
+		-> navigate initial database name ,give input for schema name
+			ex:tetdb
+		-> click on create database
+		-> after few mins , database successfuly created and database status is Active
+		-> click on database instance 
+		-> navigate to  Conectivity &Security
+		-> navigate to Endpoint and port
+		->copy endpoint and port details and use the same in spring-boot application.properties for RDS MySQL connectivity
+		
+				Ex: myorg-database-1.cvaymsokwwek.ap-south-2.rds.amazonaws.com
+		-> navigate to security 
+		-> click on default
+		-> click on security group
+		-> click on edit inbound rules
+		-> click on Add Rule
+			give input here
+						type :MySQL/Aurora   from drop-down
+						protocol:TCP
+						port :
+		
+			
+		
+		
+	# create springboot-aws-rds-demo application
+
+		->mvn clean install
+		->ensure target/springboot-aws-rds-demo.jar
+	#run SpringBootApplication
+	
+		test api endpoints using postman
+		localhost
+		
+	# AWS ElasticBeanStack :deploy springboot-aws-rds-demo.jar
+	
+	
+	#After succesfull deployment postman testing	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
